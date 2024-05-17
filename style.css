@@ -1,0 +1,365 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 5%;
+  position: relative;
+  height: auto;
+  gap: 20px;
+  background-color: whitesmoke;
+}
+
+#mainCotainer {
+  width: 80vw;
+}
+
+table {
+  width: 80vw;
+  border-collapse: collapse;
+  margin-top: 36px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 0px transparent;
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+#prevPageBtn {
+  border: 0px transparent;
+    padding: 10px;
+    background: white;
+    border-radius: 6px;
+    margin-right: 10px; 
+    cursor: pointer;
+}
+#nextPageBtn{
+  border: 0px transparent;
+  padding: 10px;
+  background: white;
+  border-radius: 6px;
+  margin-left: 10px; 
+  cursor: pointer;
+}
+#paginationContainer{
+  /* width: 180px; */
+  /* border: 0px transparent; */
+  position: absolute;
+  left: 140px;
+  top: 200px;
+}
+#sortingDataDropdown {
+  width: 180px;
+  border: 0px transparent;
+  position: absolute;
+  right: 140px;
+  top: 200px;
+}
+
+thead {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+tr th {
+  padding: 10px 20px;
+}
+
+th,
+td {
+  border: 1px solid #fff;
+  padding: 8px;
+  text-align: left;
+  text-align: center;
+  border: 0px transparent;
+}
+
+th {
+  background-color: #fff;
+  font-weight: bold;
+  border: 0px transparent;
+}
+
+trHead {
+  background-color: #fff;
+}
+
+trBody {
+  background-color: #dbd9d9;
+}
+
+#addProduct {
+  display: none;
+}
+
+#editProduct {
+  display: none;
+}
+
+#orderContainer {
+  display: none;
+}
+
+#action {
+  display: flex;
+
+  justify-content: space-evenly;
+  /* To evenly distribute the containers horizontally */
+  align-items: center;
+  /* To vertically center the content */
+}
+
+.actionContainer {
+  cursor: pointer;
+  /* Make the containers clickable */
+  padding: 2px;
+}
+
+.actionContainer:hover {
+  background-color: #fff;
+  /* Change background color on hover */
+}
+
+.actionContainer svg {
+  width: 30px;
+  /* Adjust the size of the SVG icons */
+  height: 30px;
+}
+
+#deleteContainer svg path {
+  fill: red;
+}
+
+#viewHistory img {
+  width: 30px;
+  height: 30px;
+}
+
+.actionContainer img {
+  width: 30px;
+  /* Adjust the size of the image */
+  height: 30px;
+}
+
+#headContainer {
+  width: 80vw;
+  height: auto;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  padding: 0 20px;
+  border-radius: 6px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+#viewHistoryHeading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.btnStyle {
+  padding: 10px 20px;
+  border: 0px transparent;
+  border-radius: 6px;
+  color: white;
+}
+
+.innerContainerHeader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 32%;
+  gap: 20px;
+}
+
+#searchBar {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  height: 100%;
+  width: 68%;
+}
+
+#searchBar input {
+  padding: 10px 20px;
+  border: 0px transparent;
+  border-radius: 6px;
+  width: 60%;
+  background-color: #f2f2f2;
+  color: black;
+}
+
+#orderBtn {
+  background-color: #008cba;
+}
+
+#addBtn {
+  background-color: #2cbc63;
+}
+
+/* Container styles */
+#orderContainer,
+#addProduct,
+#editProduct {
+  width: 100%;
+  position: absolute;
+  max-width: 800px;
+  top: 10%;
+  margin: 0 auto;
+  padding: 20px;
+  height: 90vh;
+  box-sizing: border-box;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  overflow-x: hidden;
+}
+
+/* Title styles */
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 20px;
+  position: absolute;
+  top: 24px;
+  right: 10px;
+  cursor: pointer;
+}
+
+#stock_info {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+#edit_stock_info {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+#img {
+  height: 41vh;
+  margin: auto;
+  position: absolute;
+  top: 101%;
+  left: 39%;
+}
+
+#dataContainer {
+  max-height: 270px;
+  overflow-x: hidden;
+  background: #f2f2f2;
+}
+
+#productValidation,
+#productEditValidation,
+#stockValidation {
+  color: red;
+}
+
+#viewHistoryData {
+  display: none;
+  position: absolute;
+  background: white;
+  width: 80vw;
+  border-radius: 6px;
+  height: auto;
+  max-height: 50vh;
+  overflow-x: hidden;
+  top: 22%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+#closeHistoryData {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+#viewHistoryData li {
+  padding: 8px;
+  /* Add padding to list items */
+  margin: 5px 0;
+  /* Add margin between list items */
+  border-bottom: 1px solid #ddd;
+  /* Optional: add a bottom border for separation */
+}
+
+/* Form styles */
+form {
+  margin-top: 20px;
+}
+
+.formDetails {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #666;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}

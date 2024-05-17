@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Inventory Management System</h1>
+    <div id="viewHistoryData">
+        <div class="viewHistoryHeading">
+            <h1>View History</h1>
+            <h2 onclick="handleHistoryData()" id="closeHistoryData">X</h2>
+        </div>
+        <div id="viewHistoryDataMain"></div>
+    </div>
+    <div id="headContainer">
+
+        <div id="searchBar">
+            <input type="text" id="searchInput" placeholder="Search here....">
+        </div>
+        <div class="innerContainerHeader"><button id="orderBtn" class="btnStyle" type="button" onclick="populateProductDropdownForOrder()">OrderItems</button><button id="addBtn" class="btnStyle" type="button" onclick="handleAddForm()">AddItems</button></div></div>
+
+
+
+
+    <div id="paginationContainer">
+        <button id="prevPageBtn">Previous</button>
+        <span id="currentPage"></span>
+        <button id="nextPageBtn">Next</button>
+      </div><select id="sortingDataDropdown">
+        <option value="">Sort By</option>
+        <option value="category">Category</option>
+        <option value="e_date">Expiry Date</option>
+        <option value="m_date">Manufacturing Date</option>
+        <option value="price">Price</option>
+        <option value="product_id">Product ID</option>
+        <option value="product_name">Product Name</option>
+        <option value="stock_info">Stock Info</option>
+        <option value="stock_quantity">Stock Quantity</option>
+        <option value="sub_category">Sub Category</option>
+    </select>
+    <table class="product">
+        <thead>
+            <tr id="trHead">
+                <th>Id</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Sub Category</th>
+                <th>Price</th>
+                <th>Stock Quantity</th>
+                <th>Stock Info</th>
+                <th>Manufacturing Date</th>
+                <th>Expiry Date</th>
+                <th>Operations</th>
+            </tr>
+        </thead>
+        <tbody id="dataContainer">
+
+
+        </tbody>
+    </table>
+    <div id="orderContainer">
+        <h1>Product Details</h1>
+        <h2 onclick="handleOrderFormHide()">X</h2>
+        <form id="productDetailsForm">
+            <div>
+                <label for="order_product_id">Product ID:</label>
+                <select required id="order_product_id" name="order_product_id">
+                    <option value="">Select Product Id</option>
+                </select>
+            </div>
+            <div>
+                <label for="order_product_name">Product Name:</label>
+                <input required type="text" id="order_product_name" name="order_product_name" readonly>
+            </div>
+            <div>
+                <label for="order_category">Category:</label>
+                <input required type="text" id="order_category" name="order_category" readonly>
+            </div>
+            <div>
+                <label for="order_price">Price:</label>
+                <input required min="0" type="number" id="order_price" name="order_price" readonly>
+            </div>
+            <div>
+                <label for="order_stock_quantity">Stock Quantity:</label>
+                <input required min="0" type="number" id="order_stock_quantity" name="order_stock_quantity">
+                <span id="stockValidation"></span>
+            </div>
+            <div>
+                <label for="order_stock_info">Stock Info:</label>
+                <input required type="text" id="order_stock_info" name="order_stock_info" readonly>
+            </div>
+            <div>
+                <label for="order_m_date">Manufacturing Date:</label>
+                <input required type="date" id="order_m_date" name="order_m_date" readonly>
+            </div>
+            <div>
+                <label for="order_e_date">Expiry Date:</label>
+                <input required type="date" id="order_e_date" name="order_e_date" readonly>
+            </div>
+            <button type="submit">Place Order</button>
+        </form>
+    </div>
+    <div id="addProduct">
+        <h1>Add Product</h1>
+        <h2 onclick="handleAddFormHide()">X</h2>
+        <form id="productForm">
+            <div class="formDetails">
+
+                <label for="productId">Product ID:</label>
+                <input min="0" required type="number" id="productId" name="product_id" placeholder="Enter Only Number">
+                <span id="productValidation"></span>
+            </div>
+            <div class="formDetails">
+                <label for="productName">Product Name:</label>
+                <input required type="text" id="productName" name="product_name" placeholder="Enter Product Name">
+            </div>
+            <div class="formDetails">
+                <label for="category">Category:</label>
+                <select required id="category" name="category">
+                    <option value="" disabled selected>Select a category</option>
+                </select>
+            </div>
+            <div class="formDetails">
+                <label for="sub_category">Sub Category:</label>
+                <select required id="sub_category" name="sub_category">
+                    <option value="" disabled selected>Select a subcategory</option>
+                </select>
+            </div>
+            <div class="formDetails">
+                <label for="price">Price:</label>
+                <input min="0" required type="number" id="price" name="price" placeholder="Enter Product Price">
+            </div>
+            <div class="formDetails">
+                <label for="stock_quantity">Stock Quantity:</label>
+                <input min="0" required type="number" id="stock_quantity" name="stock_quantity"
+                    placeholder="Enter Product Quantity">
+            </div>
+            <div class="formDetails">
+                <label for="stock_info">Stock Info:</label>
+                <input  required id="stock_info" readonly name="stock_info">
+                </input>
+            </div>
+
+            <div class="formDetails">
+                <label for="mDate">Manufacturing Date:</label>
+                <input required type="date" id="mDate" name="m_date">
+            </div>
+            <div class="formDetails">
+                <label for="endDate">Expiry Date:</label>
+                <input required type="date" id="endDate" name="e_date">
+            </div>
+
+
+
+            <button type="submit">Add Product</button>
+        </form>
+    </div>
+
+
+
+    <div id="editProduct">
+        <h1>Edit Product</h1>
+        <h2 onclick="handleEditFormHide()">X</h2>
+        <form id="editProductForm">
+            <div class="formDetails">
+
+                <label for="editedProductId">Product ID:</label>
+                <input min="0" required type="number" id="editProductId" name="editProduct_id">
+                <span id="productEditValidation"></span>
+            </div>
+            <div class="formDetails">
+                <label for="editProductName">Product Name:</label>
+                <input required type="text" id="editProductName" name="editProduct_name">
+            </div>
+            <div class="formDetails">
+                <label for="editCategory">Category:</label>
+                <select required id="editCategory" name="editCategory">
+                    <option value="" disabled selected>Select a category</option>
+                </select>
+
+            </div>
+            <div class="formDetails">
+                <label for="edit_sub_category">Sub Category:</label>
+                <select required id="edit_sub_category" name="edit_sub_category">
+                    <option value="" disabled selected>Select a subcategory</option>
+                </select>
+            </div>
+            <div class="formDetails">
+                <label for="edit_price">Price:</label>
+                <input required min="0" type="number" id="edit_price" name="edit_price">
+            </div>
+            <div class="formDetails">
+                <label for="edit_stock_quantity">Stock Quantity:</label>
+                <input required min="0" type="number" id="edit_stock_quantity" name="edit_stock_quantity">
+            </div>
+            <div class="formDetails">
+                <label for="edit_stock_info">Stock Info:</label>
+                <input required id="edit_stock_info" readonly name="edit_stock_info">
+                </input>
+            </div>
+
+            <div class="formDetails">
+                <label for="edit_mDate">Manufacturing Date:</label>
+                <input required type="date" id="edit_mDate" name="edit_m_date">
+            </div>
+            <div class="formDetails">
+                <label for="edit_endDate">Expiry Date:</label>
+                <input required type="date" id="edit_endDate" name="edit_e_date">
+            </div>
+
+
+
+            <button type="submit">Edit Product</button>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
